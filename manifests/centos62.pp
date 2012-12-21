@@ -1,7 +1,7 @@
 include epel
 
 package { "python-pip":
-    ensure => "present",
+    ensure => present,
     require => Yumrepo["epel"],
 }
 
@@ -17,5 +17,5 @@ package { ["gcc","git","python-devel"]:
 package { "beaver":
     provider => "pip",
     source => "git+git://github.com/josegonzalez/beaver.git#egg=beaver",
-    require => [Package["python-pip"],File["/usr/bin/pip"],Package["gcc"]],
+    require => [Package["python-pip"],File["/usr/bin/pip"],Package["gcc"],Package["git"],Package["python-devel"]],
 }
