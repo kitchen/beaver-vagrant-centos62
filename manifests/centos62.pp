@@ -1,6 +1,6 @@
 include epel
 
-package { "python-pip":
+package { ["python-pip","python-redis"]:
     ensure => present,
     require => Yumrepo["epel"],
 }
